@@ -17,10 +17,3 @@ This portfolio highlights my work in Python and Java, displaying a range of appl
 - CSS3
 - JavaScript (minimal)
 
-## Setup
-
-To run this project, download or clone the repository and open `index.html` in your browser.
-
-```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
