@@ -15,4 +15,3 @@ This portfolio highlights my work in Python and Java, displaying a range of appl
 
 - HTML5
 - CSS3
-
