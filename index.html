@@ -174,16 +174,89 @@
         p {
             font-size: 1rem; /* Example of paragraph font size */
         }
-    </style>
-</head>
-<body>
+
+                /* Dark mode styles */
+                body.dark-mode, .dark-mode .contact, .dark-mode footer {
+                    background-color: #121212; /* Dark background */
+                    color: #e0e0e0; /* Light text */
+                }
+
+                .dark-mode .project {
+                    background-color: #222; /* Dark card background */
+                    color: #ccc; /* Light card text */
+                }
+
+                .dark-mode .about-text, .dark-mode .about-text h2, .dark-mode .about-text p {
+                    color: #ffffff; /* Makes the text color white */
+                }
+
+                .dark-mode .dark-mode-toggle img {
+                    filter: invert(1); /* This assumes your sun icon is black and you want to invert it to white */
+                }
+
+                /* Button to toggle dark mode */
+                #dark-mode-toggle {
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #333;
+                    color: white;
+                    cursor: pointer;
+                    position: fixed;
+                    bottom: 10px;
+                    right: 10px;
+                }
+
+                #dark-mode-toggle:hover {
+                    background-color: #555;
+                }
+                header {
+                    position: relative; /* Needed for absolute positioning of children */
+                    /* ... your existing styles ... */
+                }
+
+                #dark-mode-toggle {
+                    position: absolute;
+                    top: 20px; /* Adjust as necessary for your layout */
+                    right: 20px; /* Adjust as necessary for your layout */
+                    cursor: pointer;
+                    background: none; /* Removes the background */
+                    border: none; /* Removes the border */
+                }
+
+                #dark-mode-toggle img {
+                    width: 24px; /* Sets the icon size */
+                    height: 24px; /* Sets the icon size */
+                }
+
+                /* If you have links or other elements within the contact section, style them for dark mode too */
+                .dark-mode .contact a, .dark-mode .contact a:visited {
+                    color: #e0e0e0; /* Light text color for links */
+                }
+
+                .dark-mode .contact a:hover {
+                    color: #e8491d; /* Optional: Style for hover state */
+                }
+                .dark-mode header{
+                    background-color: #1a1a1a; /* Dark background for contact section */
+                }
+                .dark-mode .contact img {
+    filter: invert(1); /* Inverts the color, turning black icons white */
+}
+            </style>
+        </head>
+<body class="dark-mode"> <!-- Add the dark-mode class to enable dark mode by default -->
     <header>
         <nav>
+            <!-- Your navigation links -->
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
+        <div id="dark-mode-toggle" class="dark-mode-toggle">
+            <img src="images/moon.svg" alt="Toggle Dark Mode" /> 
+        </div>
     </header>
     <section id="home" class="home">
         <h1>Welcome to My Portfolio</h1>
@@ -245,5 +318,38 @@
     <footer>
         <p>&copy; 2023 Femboy Nova</p>
     </footer>
+    <script>
+        // Check for saved dark mode preference in localStorage, default to dark mode
+        const prefersDarkMode = localStorage.getItem('darkMode') === 'true';
+
+        // Apply dark mode by default if there is no preference or if preference is true
+        document.body.classList.toggle('dark-mode', prefersDarkMode);
+
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            // Optional: Change the icon based on the dark mode state
+            const icon = document.querySelector('.dark-mode-toggle img');
+            if (isDarkMode) {
+                icon.src = 'images/sun.svg'; // Path to sun icon
+            } else {
+                icon.src = 'images/moon.svg'; // Path to moon icon
+            }
+        }
+
+        // Event listener for the dark mode toggle button
+        document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+
+        // Set the correct icon on initial load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const icon = document.querySelector('.dark-mode-toggle img');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.src = 'images/sun.svg'; // Path to sun icon
+            } else {
+                icon.src = 'images/moon.svg'; // Path to moon icon
+            }
+        });
+    </script>
 </body>
 </html>
