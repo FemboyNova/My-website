@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
     <style>
-        /* Basic Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        /* Typography */
         body {
             font-family: 'Arial', sans-serif;
             color: #333;
@@ -17,80 +14,57 @@
             padding: 0;
             background: #f4f4f4;
         }
-
-        /* Container */
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
-
-        /* Header */
         header {
             background: #333;
             color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #bbb 1px solid;
+            padding: 20px 0;
+            text-align: left;
         }
-
         header a {
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: 18px;
+            margin-left: 20px;
+            transition: color 0.3s;
         }
-
-        header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-
-        header #branding {
-            float: left;
-        }
-
-        header #branding h1 {
-            margin: 0;
-        }
-
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-
-        header .highlight, header .current a {
-            color: #e8491d;
-            font-weight: bold;
-        }
-
         header a:hover {
-            color: #ffffff;
-            font-weight: bold;
+            color: #e8491d;
         }
-
-        /* Home Section */
+        header .current a {
+            font-weight: bold;
+            color: #e8491d;
+        }
+        @media (max-width: 768px) {
+            header {
+                text-align: center;
+            }
+            header a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
         .home { padding: 50px 0; text-align: center; }
         .home h1 { font-size: 2.5em; margin-bottom: 20px; }
-
-        /* About Section */
         .about-content {
             display: flex;
             align-items: center;
             justify-content: start;
             margin-bottom: 40px;
         }
-
         .about img {
-            width: 300px; 
-            max-width: 100%; 
-            height: auto; 
-            object-fit: contain; 
+            width: 300px;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
             border: 5px solid #ddd;
-            margin-left: 20px;  
+            margin-left: 20px;
         }
-
         .about-text h2 {
             font-size: 5em;
             margin-top: -100px;
@@ -98,25 +72,69 @@
             padding-left: 20px;
             color: #333;
         }
-
         .about-text p {
             margin-top: -40px;
             margin-bottom: 20px;
             padding-left: 20px;
             padding-right: 20px
         }
-
-        /* Projects Section */
-        .projects { padding: 50px 0; }
-        .projects .project { margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
-        .projects h3 { margin-bottom: 10px; }
-        .projects p { margin-bottom: 10px; }
-
-        /* Contact Section */
-        .contact { background: #f0f0f0; padding: 50px 0; text-align: center; }
-        .contact a { display: inline-block; margin: 0 15px; }
-
-        /* Footer */
+        .projects {
+                    padding: 50px 0;
+                }
+                .project-container {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 40px;
+                }
+                .project {
+                    flex-basis: calc(33.333% - 20px);
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                    padding: 20px;
+                    margin: 10px;
+                    background: #fff;
+                }
+                .projects .project {
+                    margin-bottom: 30px;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                }
+                .projects h2 {
+                    font-size: 5em;
+                    padding-left: 20px;
+                    margin-bottom: 10px;
+                }
+                .projects h3 {
+                    margin-bottom: 10px;
+                }
+                .projects p {
+                    margin-bottom: 10px;
+                }
+                .project a {
+                    display: inline-block;
+                    padding: 10px 15px;
+                    background-color: #333; /* Same as header background */
+                    color: #fff; /* Same as header text color */
+                    text-align: center;
+                    text-decoration: none;
+                    border: none; /* No border by default, adjust as needed */
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                }
+                .project a:hover {
+                    background-color: #555; /* Slightly lighter gray for hover state */
+                    color: #e8491d; /* Change text color to reddish on hover */
+                    text-decoration: none; /* Removes underline on hover */
+                }
+        .contact {
+            background: #f0f0f0;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .contact a {
+            display: inline-block;
+            margin: 0 15px;
+        }
         footer {
             padding: 20px;
             position: relative;
@@ -124,10 +142,14 @@
             color: #fff;
             text-align: center;
         }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            header nav a { display: block; margin: 10px 0; }
+        @media (max-width: 960px) {
+            .project-container {
+                flex-direction: column;
+            }
+            .project {
+                flex-basis: auto;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -155,13 +177,23 @@
     </section>
     <section id="projects" class="projects">
         <h2>My Projects</h2>
-        <!-- Example Project -->
-        <div class="project">
-            <h3>Project Title</h3>
-            <p>Short description of the project.</p>
-            <a href="https://github.com/FemboyNova/My-website">View Project</a>
+        <div class="project-container">
+            <div class="project">
+                <h3>Project Title 1</h3>
+                <p>This silly website what shows off my coding and media projects</p>
+                <a href="https://github.com/FemboyNova/My-website">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Project Title 2</h3>
+                <p>A short description of the second project.</p>
+                <a href="project-link-2">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Project Title 3</h3>
+                <p>A short description of the third project.</p>
+                <a href="project-link-3">View Project</a>
+            </div>
         </div>
-        <!-- Add more projects here -->
     </section>
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
