@@ -68,8 +68,11 @@ header .current a {
 .about-content {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: start; 
+    margin: 0 auto; 
     margin-bottom: 40px;
+    max-width: 2000px;
+    padding: 0 20px; 
 }
 
 .about img {
@@ -98,12 +101,23 @@ header .current a {
 
 .projects {
     padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-title {
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: left;
 }
 
 .project-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
+    max-width: 2000px;
 }
 
 .project {
@@ -117,6 +131,7 @@ header .current a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 800px;
 }
 
 .project:hover {
@@ -164,7 +179,6 @@ header .current a {
     width: 100%;
     height: auto;
 }
-
 .contact {
     background: #f0f0f0;
     padding: 10px 0;
@@ -180,8 +194,7 @@ header .current a {
 footer {
     padding: 10px;
     position: relative;
-    background: #333;
-    color: #fff;
+    color: #333;
     text-align: center;
 }
 
