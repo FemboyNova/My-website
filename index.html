@@ -4,21 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Femboy Haven</title>
-    
-    <!-- Favicon link goes here. Example: -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/bread.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/bread.png">
-    <!-- Replace "/path/to/" with the actual path to your favicon images -->
-
     <link rel="stylesheet" href="main.css">
 </head>
 <body class="dark-mode">
     <header>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>            
         </nav>
         <div id="dark-mode-toggle" class="dark-mode-toggle">
             <img src="images/moon.svg" alt="Toggle Dark Mode" /> 
@@ -111,6 +107,20 @@
             const icon = document.querySelector('.dark-mode-toggle img');
             icon.src = prefersDarkMode ? 'images/sun.svg' : 'images/moon.svg';
         });
-    </script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            const hash = this.getAttribute('href'); // Get the hash (like '#home')
+            const target = document.querySelector(hash); // Find the target element
+
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    document.querySelectorAll('img').forEach(img => {
+        img.setAttribute('draggable', false);
+    });
+</script>
 </body>
 </html>
