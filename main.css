@@ -63,6 +63,27 @@ header .current a {
     font-size: 2.5em;
     margin-bottom: 20px;
 }
+.featured-project {
+    font-size: 2em;
+    color: #333; 
+    text-align: center; 
+    margin-top: 40px; 
+}
+.livestream-container {
+    display: block; 
+    width: fit-content; 
+    margin-top: -60px;
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center; 
+}
+
+.livestream-container iframe {
+    border: 5px solid #fff; 
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); 
+    margin-bottom: 20px; 
+}
+
 
 .about-content {
     display: flex;
@@ -237,7 +258,9 @@ body.dark-mode,
 
 .dark-mode .about-text,
 .dark-mode .about-text h2,
-.dark-mode .about-text p {
+.dark-mode .about-text p,
+.dark-mode .featured-project {
+
     color: #ffffff;
 }
 
@@ -301,4 +324,8 @@ header {
 
 .dark-mode .about img {
     border: 5px solid #ddd;
+}
+
+.dark-mode .livestream-container iframe {
+    color: #000000;
 }
